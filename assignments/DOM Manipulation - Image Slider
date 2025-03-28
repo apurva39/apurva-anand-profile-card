@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        img { width: 300px; height: 200px; display: block; margin: 20px auto; }
+        button { padding: 10px; margin: 5px; }
+    </style>
+</head>
+<body>
+
+    <h2>Image Slider</h2>
+    <img id="slider" src="https://via.placeholder.com/300x200/FF0000/FFFFFF?text=Image+1">
+    <br>
+    <button onclick="prevImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+
+    <script>
+        let images = [
+            "https://via.placeholder.com/300x200/FF0000/FFFFFF?text=Image+1",
+            "https://via.placeholder.com/300x200/00FF00/FFFFFF?text=Image+2",
+            "https://via.placeholder.com/300x200/0000FF/FFFFFF?text=Image+3"
+        ];
+        let index = 0;
+        let slider = document.getElementById("slider");
+
+        function nextImage() {
+            index = (index + 1) % images.length;
+            slider.src = images[index];
+        }
+
+        function prevImage() {
+            index = (index - 1 + images.length) % images.length;
+            slider.src = images[index];
+        }
+    </script>
+
+</body>
+</html>
